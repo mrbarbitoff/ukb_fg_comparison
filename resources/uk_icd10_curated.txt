@@ -1,0 +1,784 @@
+UK_code	UK_pheno	h2_observed
+D38	Neoplasm of uncertain or unknown behaviour of middle ear and respiratory and intrathoracic organs	0.0014152299447
+H16	Keratitis	-0.00403244350431
+D30	Benign neoplasm of urinary organs	0.00191466844353
+N47	Redundant prepuce, phimosis and paraphimosis	0.00265214088776
+K44	Diaphragmatic hernia	0.00592544910168
+T86	Failure and rejection of transplanted organs and tissues	0.00109785621385
+I31	Other diseases of pericardium	0.00272851076705
+L02	Cutaneous abscess, furuncle and carbuncle	-0.00274338138727
+M45	Ankylosing spondylitis	0.00323944334323
+K76	Other diseases of liver	0.00474683188825
+F23	Acute and transient psychotic disorders	-0.00232488900817
+E16	Other disorders of pancreatic internal secretion	0.00184657563879
+Z43	Attention to artificial openings	-0.000688015917444
+H35	Other retinal disorders	-0.000913826291222
+I20	Angina pectoris	0.0102489525116
+K66	Other disorders of peritoneum	0.000537247187347
+N80	Endometriosis	0.0043129331862
+O36	Maternal care for other known or suspected foetal problems	0.0021424678054
+F33	Recurrent depressive disorder	0.00350300670057
+S00	Superficial injury of head	0.000305412164198
+H43	Disorders of vitreous body	-0.000134488355435
+Z51	Other medical care	0.000918522553746
+N93	Other abnormal uterine and vaginal bleeding	5.95745400765e-06
+G51	Facial nerve disorders	0.00279968815477
+M21	Other acquired deformities of limbs	0.00792744976184
+L30	Other dermatitis	-0.00295924789294
+M10	Gout	0.00514441294521
+H53	Visual disturbances	0.00304126394435
+K83	Other diseases of biliary tract	-0.00265015553385
+F10	Mental and behavioural disorders due to use of alcohol	-0.00231715077958
+J44	Other chronic obstructive pulmonary disease	0.00649100273431
+S20	Superficial injury of thorax	-0.00179934795935
+H80	Otosclerosis	0.0029912714022
+I78	Diseases of capillaries	-0.00148957422066
+Z00	General examination and investigation of persons without complaint or reported diagnosis	-0.000954125586922
+M05	Seropositive rheumatoid arthritis	0.00119415269491
+H73	Other disorders of tympanic membrane	0.000442840463333
+I65	Occlusion and stenosis of precerebral arteries, not resulting in cerebral infarction	-6.14765907251e-05
+Z12	Special screening examination for neoplasms	0.00195983509003
+S42	Fracture of shoulder and upper arm	-0.000243518663144
+R60	Oedema, not elsewhere classified	0.000510220085756
+I50	Heart failure	0.000865870641849
+F43	Reaction to severe stress, and adjustment disorders	0.00435696735966
+C34	Malignant neoplasm of bronchus and lung	-0.000183586158186
+J32	Chronic sinusitis	-0.00225712794541
+I44	Atrioventricular and left bundle-branch block	-0.000373174362099
+R40	Somnolence, stupor and coma	0.0017174844593
+N28	Other disorders of kidney and ureter, not elsewhere classified	0.0041922194962
+T14	Injury of unspecified body region	-0.000436080888678
+S66	Injury of muscle and tendon at wrist and hand level	0.00447493696167
+J03	Acute tonsillitis	0.00369162274198
+R52	Pain, not elsewhere classified	0.00186690832629
+I95	Hypotension	0.0019939713626
+G37	Other demyelinating diseases of central nervous system	0.0032350298037
+L97	Ulcer of lower limb, not elsewhere classified	-0.0037506882263
+N32	Other disorders of bladder	0.00528199573219
+K00	Disorders of tooth development and eruption	0.000954412573027
+K09	Cysts of oral region, not elsewhere classified	0.00366664329567
+I85	Oesophageal varices	-0.00193377151182
+G24	Dystonia	0.00125447167555
+C45	Mesothelioma	-0.00156530807915
+K31	Other diseases of stomach and duodenum	0.00121911179045
+N13	Obstructive and reflux uropathy	0.00316314567824
+O47	False labour	0.00139276666737
+R31	Unspecified haematuria	0.00825017431834
+C73	Malignant neoplasm of thyroid gland	8.43537174316e-05
+C92	Myeloid leukaemia	-0.00170538866974
+K27	Peptic ulcer, site unspecified	-0.00042683301494
+D11	Benign neoplasm of major salivary glands	-0.000387870747805
+O75	Other complications of labour and delivery, not elsewhere classified	0.00425933090956
+N60	Benign mammary dysplasia	0.00364473890348
+M94	Other disorders of cartilage	-0.00213132956555
+M79	Other soft tissue disorders, not elsewhere classified	0.00221078500928
+K58	Irritable bowel syndrome	0.0018709455885
+A63	Other predominantly sexually transmitted diseases, not elsewhere classified	-0.000411060471131
+R15	Faecal incontinence	0.000587193753457
+O63	Long labour	0.00167331625179
+D23	Other benign neoplasms of skin	0.000773329020897
+N70	Salpingitis and oophoritis	0.00050538180254
+M85	Other disorders of bone density and structure	-0.00305914477041
+M54	Dorsalgia	0.00959289381146
+T85	Complications of other internal prosthetic devices, implants and grafts	0.000963077354199
+E27	Other disorders of adrenal gland	-0.00105484364395
+D39	Neoplasm of uncertain or unknown behaviour of female genital organs	-0.00334540194577
+N49	Inflammatory disorders of male genital organs, not elsewhere classified	-0.000138924580194
+K46	Unspecified abdominal hernia	0.00483363823654
+Z71	Persons encountering health services for other counselling and medical advice, not elsewhere classified	0.000712206174064
+H25	Senile cataract	0.00807502005675
+I30	Acute pericarditis	0.00503279007659
+F20	Schizophrenia	0.00137836788405
+Z48	Other surgical follow-up care	0.00108792357192
+O04	Medical abortion	0.00340722599686
+Z42	Follow-up care involving plastic surgery	0.00272466213315
+I21	Acute myocardial infarction	0.00869808426931
+E07	Other disorders of thyroid	0.000809847151533
+K65	Peritonitis	0.0011611839278
+G81	Hemiplegia	0.000601904235404
+N83	Noninflammatory disorders of ovary, Fallopian tube and broad ligament	0.00400257439253
+M35	Other systemic involvement of connective tissue	-0.00393092838317
+B18	Chronic viral hepatitis	-0.00138490282117
+S01	Open wound of head	-0.00131309033183
+H40	Glaucoma	-0.000165754303485
+G50	Disorders of trigeminal nerve	-0.000169878973728
+N90	Other noninflammatory disorders of vulva and perineum	-0.000709972240039
+M22	Disorders of patella	-0.000614568304062
+S39	Other and unspecified injuries of abdomen, lower back and pelvis	-0.00089552021541
+Z34	Supervision of normal pregnancy	0.000568018343356
+H59	Postprocedural disorders of eye and adnexa, not elsewhere classified	-0.00273504598281
+K85	Acute pancreatitis	0.00312529411861
+M13	Other arthritis	0.00143400370387
+J47	Bronchiectasis	0.00415931259136
+S27	Injury of other and unspecified intrathoracic organs	0.00136186212122
+H69	Other disorders of Eustachian tube	-0.00241332237298
+G70	Myasthenia gravis and other myoneural disorders	0.00163444559117
+M00	Pyogenic arthritis	0.000569281270068
+Z03	Medical observation and evaluation for suspected diseases and conditions	0.00101772302382
+I67	Other cerebrovascular diseases	-0.000660372016497
+H71	Cholesteatoma of middle ear	0.00380116682216
+R69	Unknown and unspecified causes of morbidity	0.00637253714493
+Z13	Special screening examination for other diseases and disorders	0.000218732858661
+S43	Dislocation, sprain and strain of joints and ligaments of shoulder girdle	-0.00198186690246
+R73	Elevated blood glucose level	0.0011827430067
+F45	Somatoform disorders	0.000963640046326
+C32	Malignant neoplasm of larynx	-0.00025496704105
+J33	Nasal polyp	0.00543822546312
+I45	Other conduction disorders	-0.00158657071201
+R42	Dizziness and giddiness	0.000636397664326
+N23	Unspecified renal colic	0.000749806095198
+T17	Foreign body in respiratory tract	-0.0019243256127
+S67	Crushing injury of wrist and hand	-2.84194623605e-06
+J02	Acute pharyngitis	-0.00138215875586
+S80	Superficial injury of lower leg	-0.00231061880285
+R53	Malaise and fatigue	-0.00120892621706
+D69	Purpura and other haemorrhagic conditions	0.00173705700876
+N34	Urethritis and urethral syndrome	0.00133411248875
+L90	Atrophic disorders of skin	-0.00252362775705
+K01	Embedded and impacted teeth	0.00312173373112
+I89	Other non-infective disorders of lymphatic vessels and lymph nodes	-0.000608572158608
+R29	Other symptoms and signs involving the nervous and musculoskeletal systems	-0.00118631228792
+G20	Parkinson's disease	-0.00368690447432
+C43	Malignant melanoma of skin	-0.00021750447135
+R32	Unspecified urinary incontinence	0.00285986476884
+K30	Dyspepsia	0.00688750639365
+D07	Carcinoma in situ of other and unspecified genital organs	0.00282541649678
+C77	Secondary and unspecified malignant neoplasm of lymph nodes	-0.00227748415908
+N10	Acute tubulo-interstitial nephritis	-0.00303950721996
+C91	Lymphoid leukaemia	-0.00353173363605
+K25	Gastric ulcer	-0.000379832174579
+O70	Perineal laceration during delivery	0.00134917692171
+D12	Benign neoplasm of colon, rectum, anus and anal canal	0.011877550069
+M96	Postprocedural musculoskeletal disorders, not elsewhere classified	0.0024991497684
+F99	Mental disorder, not otherwise specified	-0.000324443371137
+L60	Nail disorders	0.00107282304918
+K57	Diverticular disease of intestine	0.0127390438574
+H02	Other disorders of eyelid	0.00140148775169
+R12	Heartburn	0.00156454169425
+O60	Preterm delivery	0.00114100322671
+D22	Melanocytic naevi	0.00369926059422
+N71	Inflammatory disease of uterus, except cervix	-0.00168523512214
+M80	Osteoporosis with pathological fracture	0.000258141923618
+D36	Benign neoplasm of other and unspecified sites	-0.00108097599813
+T84	Complications of internal orthopaedic prosthetic devices, implants and grafts	0.00652904422442
+M51	Other intervertebral disk disorders	0.00395664966499
+K40	Inguinal hernia	0.0190948718527
+E21	Hyperparathyroidism and other disorders of parathyroid gland	0.000818959019482
+N48	Other disorders of penis	-0.00234179554355
+Z76	Persons encountering health services in other circumstances	-0.000199050761687
+O00	Ectopic pregnancy	-0.00255146878553
+F25	Schizoaffective disorders	0.00222148528537
+H27	Other disorders of lens	-0.00261386493763
+I35	Nonrheumatic aortic valve disorders	7.8539867141e-05
+Z45	Adjustment and management of implanted device	0.000979499065551
+J96	Respiratory failure, not elsewhere classified	-0.000383831791397
+I22	Subsequent myocardial infarction	0.00269569284142
+G82	Paraplegia and tetraplegia	0.00251734271372
+E04	Other non-toxic goitre	0.00576257854441
+K62	Other diseases of anus and rectum	0.00477196147101
+N82	Fistulae involving female genital tract	0.0034446018262
+M34	Systemic sclerosis	-0.00122381853229
+L27	Dermatitis due to substances taken internally	-0.00111516072033
+H49	Paralytic strabismus	-0.00238317526713
+N97	Female infertility	-0.000124170955172
+G57	Mononeuropathies of lower limb	0.00082452706477
+S02	Fracture of skull and facial bones	0.00176251972913
+M23	Internal derangement of knee	0.00543137037883
+G40	Epilepsy	-0.00180772200721
+K86	Other diseases of pancreas	0.000318143880207
+Z35	Supervision of high-risk pregnancy	0.00410994647897
+S31	Open wound of abdomen, lower back and pelvis	-0.000862318514769
+M15	Polyarthrosis	0.00416804257485
+J46	Status asthmaticus	0.00113164742603
+I77	Other disorders of arteries and arterioles	-0.00150915921075
+H61	Other disorders of external ear	-0.000899759924633
+S56	Injury of muscle and tendon at forearm level	-0.000300583816134
+Q21	Congenital malformations of cardiac septa	-0.00366614848084
+Z04	Examination and observation for other reasons	-0.000496317093922
+I60	Subarachnoid haemorrhage	-0.00361770868261
+R68	Other general symptoms and signs	0.00434633854456
+H90	Conductive and sensorineural hearing loss	-0.000931115108244
+J22	Unspecified acute lower respiratory infection	0.00550644272698
+Z11	Special screening examination for infectious and parasitic diseases	-0.00172694672356
+R76	Other abnormal immunological findings in serum	-0.00158106903027
+D48	Neoplasm of uncertain or unknown behaviour of other and unspecified sites	0.00170517894189
+S72	Fracture of femur	-0.000446478196249
+J38	Diseases of vocal cords and larynx, not elsewhere classified	0.000530477489248
+I42	Cardiomyopathy	0.00245348807129
+R49	Voice disturbances	0.000401881917504
+N21	Calculus of lower urinary tract	-0.000647237910921
+T18	Foreign body in alimentary tract	0.00438021357786
+S64	Injury of nerves at wrist and hand level	-0.00090580192015
+J06	Acute upper respiratory infections of multiple and unspecified sites	0.000909688105137
+R50	Fever of unknown origin	0.00448336962646
+D68	Other coagulation defects	-0.00374032432623
+S81	Open wound of lower leg	-0.00115806609198
+N35	Urethral stricture	0.00107574306694
+L91	Hypertrophic disorders of skin	-0.00200995157656
+I82	Other venous embolism and thrombosis	-0.00234823757312
+K02	Dental caries	0.00366347950341
+R26	Abnormalities of gait and mobility	-0.00113254364086
+E66	Obesity	0.00325638752749
+C49	Malignant neoplasm of other connective and soft tissue	0.000475231914734
+A08	Viral and other specified intestinal infections	-0.000867688344422
+R33	Retention of urine	0.00215569118432
+D06	Carcinoma in situ of cervix uteri	-0.000873796901976
+L50	Urticaria	-0.00241587754743
+N17	Acute renal failure	0.00242993586268
+C90	Multiple myeloma and malignant plasma cell neoplasms	-0.00244810037042
+O73	Retained placenta and membranes, without haemorrhage	-0.000423757507749
+R00	Abnormalities of heart beat	-6.01171573621e-05
+D13	Benign neoplasm of other and ill-defined parts of digestive system	0.00321244728486
+M72	Fibroblastic disorders	0.0160223190169
+C69	Malignant neoplasm of eye and adnexa	0.00130508388609
+C80	Malignant neoplasm without specification of site	0.00327389959452
+K56	Paralytic ileus and intestinal obstruction without hernia	-0.00103654808868
+H01	Other inflammation of eyelid	0.000747736924718
+R13	Dysphagia	-0.000971896289965
+O66	Other obstructed labour	-0.00275112403241
+D25	Leiomyoma of uterus	0.0080738029577
+N72	Inflammatory disease of cervix uteri	-0.00203657089942
+M81	Osteoporosis without pathological fracture	-0.00253914000363
+N41	Inflammatory diseases of prostate	0.000225533048541
+M50	Cervical disk disorders	0.00339605843403
+K41	Femoral hernia	0.00282923798375
+T83	Complications of genito-urinary prosthetic devices, implants and grafts	-0.000782985489369
+E22	Hyperfunction of pituitary gland	-0.00188205019671
+D37	Neoplasm of uncertain or unknown behaviour of oral cavity and digestive organs	0.0022015493219
+I34	Nonrheumatic mitral valve disorders	0.000956454541855
+J84	Other interstitial pulmonary diseases	0.000581603606023
+Z44	Fitting and adjustment of external prosthetic device	-0.000600745122249
+M48	Other spondylopathies	0.00138066721165
+O02	Other abnormal products of conception	0.00232788097339
+H26	Other cataract	0.0107554038893
+I24	Other acute ischaemic heart diseases	0.00146268803076
+J93	Pneumothorax	0.000714606005298
+K63	Other diseases of intestine	0.00317073631672
+N89	Other noninflammatory disorders of vagina	-0.00244769161876
+E05	Thyrotoxicosis [hyperthyroidism]	-0.000354310914093
+N85	Other noninflammatory disorders of uterus, except cervix	-0.000745021061945
+M32	Systemic lupus erythematosus	-0.00010074437287
+L29	Pruritus	-0.00135260782442
+O26	Maternal care for other conditions predominantly related to pregnancy	-0.000122622542364
+N94	Pain and other conditions associated with female genital organs and menstrual cycle	0.00204527290394
+S05	Injury of eye and orbit	-0.00118289099108
+G56	Mononeuropathies of upper limb	0.0162456132817
+D89	Other disorders involving the immune mechanism, not elsewhere classified	-0.00297971784447
+I05	Rheumatic mitral valve diseases	-0.000927362186407
+S30	Superficial injury of abdomen, lower back and pelvis	0.0022232207088
+M17	Gonarthrosis [arthrosis of knee]	0.0140639645806
+G43	Migraine	0.00165080380592
+Z36	Antenatal screening	0.00130433328298
+J40	Bronchitis, not specified as acute or chronic	0.00389214648956
+I74	Arterial embolism and thrombosis	0.00170784434524
+H60	Otitis externa	0.000143835038622
+C19	Malignant neoplasm of rectosigmoid junction	-0.000759595749802
+S52	Fracture of forearm	0.00844188901068
+Q28	Other congenital malformations of circulatory system	0.000533744752283
+I61	Intracerebral haemorrhage	0.00250274860941
+H91	Other hearing loss	0.00251362066374
+C09	Malignant neoplasm of tonsil	0.00401001586622
+O99	Other maternal diseases classifiable elsewhere but complicating pregnancy, childbirth and the puerperium	0.000117620854644
+R94	Abnormal results of function studies	-0.000764857090083
+R79	Other abnormal findings of blood chemistry	0.00268793747572
+S76	Injury of muscle and tendon at hip and thigh level	0.00563077392724
+D41	Neoplasm of uncertain or unknown behaviour of urinary organs	0.000223930850638
+J39	Other diseases of upper respiratory tract	-0.000479719282175
+S93	Dislocation, sprain and strain of joints and ligaments at ankle and foot level	-0.000471424772998
+N20	Calculus of kidney and ureter	0.00537477993351
+F52	Sexual dysfunction, not caused by organic disorder or disease	-0.00246749987741
+L85	Other epidermal thickening	0.000236884493293
+S62	Fracture at wrist and hand level	0.00351383712995
+K13	Other diseases of lip and oral mucosa	-0.00131341653726
+S82	Fracture of lower leg, including ankle	0.00327963516842
+R51	Headache	0.00320968471861
+D64	Other anaemias	-0.000254978618664
+N36	Other disorders of urethra	0.00186024568724
+L92	Granulomatous disorders of skin and subcutaneous tissue	-0.00143067401496
+K04	Diseases of pulp and periapical tissues	-0.000186823635344
+R25	Abnormal involuntary movements	0.00122596720273
+I83	Varicose veins of lower extremities	0.022049005861
+D70	Agranulocytosis	0.000213141017763
+T39	Poisoning by nonopioid analgesics, antipyretics and antirheumatics	0.00303468766809
+A09	Diarrhoea and gastro-enteritis of presumed infectious origin	0.00261943405199
+N18	Chronic renal failure	-0.0021490252854
+O48	Prolonged pregnancy	-0.00402005696245
+D05	Carcinoma in situ of breast	0.00264272763209
+L53	Other erythematous conditions	-0.00083135990725
+K29	Gastritis and duodenitis	0.00781058916516
+R05	Cough	0.00376272704762
+D18	Haemangioma and lymphangioma, any site	0.00187207848579
+O72	Postpartum haemorrhage	2.60108825461e-05
+C67	Malignant neoplasm of bladder	0.00415602083415
+M71	Other bursopathies	-0.00175941327388
+C81	Hodgkin's disease	0.000776121727757
+K55	Vascular disorders of intestine	-0.000550328252233
+R10	Abdominal and pelvic pain	0.0150450312761
+H00	Hordeolum and chalazion	0.000223339115636
+O64	Obstructed labour due to malposition and malpresentation of foetus	0.00322952135006
+D24	Benign neoplasm of breast	5.58052833165e-05
+N73	Other female pelvic inflammatory diseases	-0.000595345928466
+M60	Myositis	-0.00153270202542
+E23	Hypofunction and other disorders of pituitary gland	0.00191196008803
+D34	Benign neoplasm of thyroid gland	-0.00113933458782
+M53	Other dorsopathies, not elsewhere classified	0.00444075376004
+K42	Umbilical hernia	0.00200105795828
+T82	Complications of cardiac and vascular prosthetic devices, implants and grafts	-0.0008152328007
+N40	Hyperplasia of prostate	0.00874627721926
+J86	Pyothorax	0.00387478554225
+A41	Other septicaemia	-0.00174523690907
+Z47	Other orthopaedic follow-up care	0.00459024437047
+Q82	Other congenital malformations of skin	-0.00178043308775
+M43	Other deforming dorsopathies	-0.000981208800293
+O03	Spontaneous abortion	0.000879944112851
+J90	Pleural effusion, not elsewhere classified	0.00141060368873
+I25	Chronic ischaemic heart disease	0.0188306745
+E03	Other hypothyroidism	0.0053200607391
+K60	Fissure and fistula of anal and rectal regions	0.00525358866468
+N84	Polyp of female genital tract	0.0030178058593
+N88	Other noninflammatory disorders of cervix uteri	0.000846348761573
+M31	Other necrotising vasculopathies	-0.000777675157708
+L28	Lichen simplex chronicus and prurigo	-0.000227499879358
+S06	Intracranial injury	-0.00103866843312
+G54	Nerve root and plexus disorders	-0.000854500417272
+O24	Diabetes mellitus in pregnancy	-0.000232006725123
+N95	Menopausal and other perimenopausal disorders	-0.00186790889999
+D86	Sarcoidosis	0.000546493806221
+S32	Fracture of lumbar spine and pelvis	-0.0027748156569
+I08	Multiple valve diseases	-0.00151135883285
+G44	Other headache syndromes	0.00316205432786
+Z30	Contraceptive management	0.002317528972
+M16	Coxarthrosis [arthrosis of hip]	0.0132854318914
+J43	Emphysema	-0.00142537461912
+I73	Other peripheral vascular diseases	0.00323671663452
+H65	Nonsuppurative otitis media	0.00206759066155
+S51	Open wound of forearm	0.00103285954938
+F60	Specific personality disorders	0.00262979510329
+C18	Malignant neoplasm of colon	0.00389227444878
+I62	Other nontraumatic intracranial haemorrhage	-0.00019299980125
+H92	Otalgia and effusion of ear	0.00200948221674
+O90	Complications of the puerperium, not elsewhere classified	-0.000316261510138
+C02	Malignant neoplasm of other and unspecified parts of tongue	0.00213911244475
+R93	Abnormal findings on diagnostic imaging of other body structures	-0.00357535061313
+O80	Single spontaneous delivery	0.00267383545158
+D47	Other neoplasms of uncertain or unknown behaviour of lymphoid, haematopoietic and related tissue	0.00148612906289
+J34	Other disorders of nose and nasal sinuses	0.00503396613778
+I48	Atrial fibrillation and flutter	0.0094325275578
+E86	Volume depletion	0.000568708384864
+S92	Fracture of foot, except ankle	0.00153659404048
+C22	Malignant neoplasm of liver and intrahepatic bile ducts	0.00363969087841
+L82	Seborrhoeic keratosis	0.00132887508697
+S63	Dislocation, sprain and strain of joints and ligaments at wrist and hand level	0.00266004896073
+K12	Stomatitis and related lesions	0.000291963850589
+R56	Convulsions, not elsewhere classified	-1.73517574081e-05
+S83	Dislocation, sprain and strain of joints and ligaments of knee	0.00339003911852
+D61	Other aplastic anaemias	-0.00304536685867
+C56	Malignant neoplasm of ovary	0.00180674812639
+L98	Other disorders of skin and subcutaneous tissue, not elsewhere classified	0.0026001825202
+K05	Gingivitis and periodontal diseases	-0.000496918058242
+L43	Lichen planus	0.001383860719
+I80	Phlebitis and thrombophlebitis	0.0102840040341
+R23	Other skin changes	0.00335269568496
+D75	Other diseases of blood and blood-forming organs	0.00150252628144
+A04	Other bacterial intestinal infections	0.00280958329473
+O41	Other disorders of amniotic fluid and membranes	0.00233194830358
+D04	Carcinoma in situ of skin	-0.00118757193976
+K22	Other diseases of oesophagus	0.0059107814241
+N19	Unspecified renal failure	0.00550494248565
+L57	Skin changes due to chronic exposure to nonionising radiation	0.00296232445414
+R04	Haemorrhage from respiratory passages	0.00524286139705
+D14	Benign neoplasm of middle ear and respiratory system	0.00217002489782
+N64	Other disorders of breast	0.00423408601192
+C64	Malignant neoplasm of kidney, except renal pelvis	0.0024546328937
+M70	Soft tissue disorders related to use, overuse and pressure	0.00480820866519
+K52	Other non-infective gastro-enteritis and colitis	0.00673218912003
+C82	Follicular [nodular] non-Hodgkin's lymphoma	-0.000410592489671
+H05	Disorders of orbit	-0.00114528491493
+R11	Nausea and vomiting	0.00438012938588
+O68	Labour and delivery complicated by foetal stress [distress]	-0.00206830691796
+M62	Other disorders of muscle	0.000370854692738
+D27	Benign neoplasm of ovary	0.000642433687153
+M89	Other disorders of bone	-0.0034001756689
+K43	Ventral hernia	0.00510392212697
+O16	Unspecified maternal hypertension	-0.00158203029481
+L08	Other local infections of skin and subcutaneous tissue	0.000238625345249
+T81	Complications of procedures, not elsewhere classified	0.00374925013255
+N43	Hydrocele and spermatocele	0.002787183662
+D35	Benign neoplasm of other and unspecified endocrine glands	-0.0016579833006
+B34	Viral infection of unspecified site	-0.00237637769429
+Z46	Fitting and adjustment of other devices	0.00376224358032
+K70	Alcoholic liver disease	-0.00272377222061
+E11	Non-insulin-dependent diabetes mellitus	0.00263419498705
+M41	Scoliosis	-0.00518627076139
+G95	Other diseases of spinal cord	0.000730704171148
+J98	Other respiratory disorders	-0.00221840904556
+K61	Abscess of anal and rectal regions	-0.000124335687076
+I26	Pulmonary embolism	0.00445089549707
+O32	Maternal care for known or suspected malpresentation of foetus	0.00136620872422
+F30	Manic episode	0.000278443447004
+N87	Dysplasia of cervix uteri	-0.00231064095959
+Z52	Donors of organs and tissues	-0.00291329795583
+K92	Other diseases of digestive system	0.00283632635575
+I10	Essential (primary) hypertension	0.00426902182946
+M24	Other specific joint derangements	0.00643841494655
+O23	Infections of genito-urinary tract in pregnancy	-0.00116656149267
+G58	Other mononeuropathies	-0.00100911415903
+T43	Poisoning by psychotropic drugs, not elsewhere classified	-0.00210572837442
+H57	Other disorders of eye and adnexa	0.00144667016626
+K80	Cholelithiasis	0.0134597896391
+G45	Transient cerebral ischaemic attacks and related syndromes	-0.000118390088467
+M19	Other arthrosis	0.00373771708288
+Z31	Procreative management	-0.00212425544144
+T50	Poisoning by diuretics and other and unspecified drugs, medicaments and biological substances	-0.00137849570291
+I72	Other aneurysm	-0.00213719612318
+H66	Suppurative and unspecified otitis media	-0.00082149368139
+Z09	Follow-up examination after treatment for conditions other than malignant neoplasms	0.00571757927337
+R87	Abnormal findings in specimens from female genital organs	-0.00213782084129
+C16	Malignant neoplasm of stomach	-0.0030589834211
+I63	Cerebral infarction	0.00352507601306
+H93	Other disorders of ear, not elsewhere classified	-0.000348093283937
+G62	Other polyneuropathies	0.000983641769236
+T78	Adverse effects, not elsewhere classified	-0.00221171374487
+O81	Single delivery by forceps and vacuum extractor	-0.00106438773809
+R90	Abnormal findings on diagnostic imaging of central nervous system	0.00127451727384
+D46	Myelodysplastic syndromes	4.80338544565e-05
+I49	Other cardiac arrhythmias	0.00188803560172
+J35	Chronic diseases of tonsils and adenoids	0.000796054429565
+S91	Open wound of ankle and foot	0.00070429922795
+E87	Other disorders of fluid, electrolyte and acid-base balance	-0.000445180453572
+C20	Malignant neoplasm of rectum	-0.00099855226381
+L81	Other disorders of pigmentation	-0.000900288145217
+S60	Superficial injury of wrist and hand	-0.000493113076966
+K11	Diseases of salivary glands	-0.00146172760794
+R54	Senility	0.00331668082329
+S86	Injury of muscle and tendon at lower leg level	0.00351212300433
+N39	Other disorders of urinary system	0.0043124112102
+C54	Malignant neoplasm of corpus uteri	0.00119625415491
+J18	Pneumonia, organism unspecified	0.000430225364655
+I86	Varicose veins of other sites	0.000971713096689
+K06	Other disorders of gingiva and edentulous alveolar ridge	-0.000842801327301
+R22	Localised swelling, mass and lump of skin and subcutaneous tissue	-0.00243165186443
+N05	Unspecified nephritic syndrome	0.000734449147147
+L40	Psoriasis	0.00208998023814
+R39	Other symptoms and signs involving the urinary system	-0.00178729410649
+O42	Premature rupture of membranes	0.0010502971547
+D03	Melanoma in situ	-0.00201645921192
+C79	Secondary malignant neoplasm of other sites	-0.00239780620118
+Z80	Family history of malignant neoplasm	0.0045409240358
+K20	Oesophagitis	0.00490611051286
+R07	Pain in throat and chest	0.0206304365732
+D16	Benign neoplasm of bone and articular cartilage	0.00245277290309
+N63	Unspecified lump in breast	0.00274985085712
+C62	Malignant neoplasm of testis	0.00179177570694
+M77	Other enthesopathies	0.00388624349882
+C83	Diffuse non-Hodgkin's lymphoma	-0.0012362287743
+K51	Ulcerative colitis	0.00633873913411
+O69	Labour and delivery complicated by umbilical cord complications	0.00196916327914
+H04	Disorders of lachrymal system	-0.0028978868614
+R18	Ascites	-0.00277558393421
+M86	Osteomyelitis	0.00175543585638
+D26	Other benign neoplasms of uterus	-0.00248245094651
+M65	Synovitis and tenosynovitis	0.00342435282333
+H18	Other disorders of cornea	-0.00292837008093
+N42	Other disorders of prostate	-0.00132007286056
+O14	Gestational [pregnancy-induced] hypertension with significant proteinuria	0.00265485860339
+L05	Pilonidal cyst	0.000394753118986
+D32	Benign neoplasm of meninges	-0.000803196938553
+T88	Other complications of surgical and medical care, not elsewhere classified	-0.00123857165252
+B37	Candidiasis	0.00467356907604
+E10	Insulin-dependent diabetes mellitus	0.00428317957721
+K75	Other inflammatory liver diseases	-0.00530764116999
+M46	Other inflammatory spondylopathies	0.00238485111918
+Z41	Procedures for purposes other than remedying health state	0.00253238842618
+G93	Other disorders of brain	-0.00103648923707
+B02	Zoster [herpes zoster]	-0.00444599250085
+H33	Retinal detachments and breaks	0.00242101839586
+S13	Dislocation, sprain and strain of joints and ligaments at neck level	0.00104084886156
+O35	Maternal care for known or suspected foetal abnormality and damage	-0.00204122383524
+N86	Erosion and ectropion of cervix uteri	0.000591873375472
+F31	Bipolar affective disorder	0.00483699279637
+Z53	Persons encountering health services for specifie procedures, not carried out	0.00253787954285
+I12	Hypertensive renal disease	0.0022915961654
+N99	Postprocedural disorders of genito-urinary system, not elsewhere classified	-0.000752220878651
+K91	Postprocedural disorders of digestive system, not elsewhere classified	0.00195148952271
+O20	Haemorrhage in early pregnancy	0.00116409453475
+M25	Other joint disorders, not elsewhere classified	0.00512107355854
+T42	Poisoning by antiepileptic, sedative-hypnotic and anti-Parkinsonism drugs	0.0038308117388
+K81	Cholecystitis	0.000837072658189
+H50	Other strabismus	0.00129299427732
+G47	Sleep disorders	0.00643553679838
+Z32	Pregnancy examination and test	0.000235086732118
+M18	Arthrosis of first carpometacarpal joint	0.00020581688487
+A87	Viral meningitis	-0.00276154364485
+I71	Aortic aneurysm and dissection	-0.00156104091547
+H83	Other diseases of inner ear	0.0022693794365
+C15	Malignant neoplasm of oesophagus	0.00308638072392
+Z08	Follow-up examination after treatment for malignant neoplasm	-0.000148602476924
+R86	Abnormal findings in specimens from male genital organs	0.000293866592385
+H74	Other disorders of middle ear and mastoid	-1.81531834534e-05
+R63	Symptoms and signs concerning food and fluid intake	-0.000695465740564
+G61	Inflammatory polyneuropathy	0.000240052308967
+T79	Certain early complications of trauma, not elsewhere classified	0.00249273469862
+R91	Abnormal findings on diagnostic imaging of lung	0.00225517276483
+O82	Single delivery by Caesarean section	0.00114780826473
+D45	Polycythaemia vera	0.00386022372127
+J36	Peritonsillar abscess	0.000611854019696
+I46	Cardiac arrest	-0.00334527904661
+R47	Speech disturbances, not elsewhere classified	-0.00522371059274
+E83	Disorders of mineral metabolism	-0.00279064784185
+C21	Malignant neoplasm of anus and anal canal	-0.00178406925877
+S68	Traumatic amputation of wrist and hand	0.00283922797717
+S61	Open wound of wrist and hand	0.00405011514384
+K10	Other diseases of jaws	0.00220211918982
+S89	Other and unspecified injuries of lower leg	6.328445232e-05
+R55	Syncope and collapse	0.00499927045944
+N30	Cystitis	-0.00114343071273
+C53	Malignant neoplasm of cervix uteri	-0.00198809766151
+J15	Bacterial pneumonia, not elsewhere classified	0.00153088431115
+K07	Dentofacial anomalies [including malocclusion]	-0.0021485932389
+I87	Other disorders of veins	-0.00415317353507
+N02	Recurrent and persistent haematuria	0.0011334456552
+R21	Rash and other nonspecific skin eruption	-0.000832576666972
+K35	Acute appendicitis	0.00418291664449
+R35	Polyuria	0.0045994435844
+O44	Placenta praevia	0.000289377654405
+D09	Carcinoma in situ of other and unspecified sites	0.0011026198074
+C78	Secondary malignant neoplasm of respiratory and digestive organs	0.000655125793318
+Z85	Personal history of malignant neoplasm	0.00286497940141
+K21	Gastro-oesophageal reflux disease	0.0104711665259
+R06	Abnormalities of breathing	0.000977153931783
+D17	Benign lipomatous neoplasm	0.00149479289888
+N62	Hypertrophy of breast	-0.000773838491829
+C61	Malignant neoplasm of prostate	0.0048572840188
+C85	Other and unspecified types of non-Hodgkin's lymphoma	0.00118613516709
+M76	Enthesopathies of lower limb, excluding foot	0.00252848851374
+K50	Crohn's disease [regional enteritis]	0.00449181324878
+R17	Unspecified jaundice	0.00391437506495
+R19	Other symptoms and signs involving the digestive system and abdomen	0.00065841215752
+N75	Diseases of Bartholin's gland	0.00344968034025
+M87	Osteonecrosis	0.000738817243251
+D28	Benign neoplasm of other and unspecified female genital organs	0.00225159133864
+M66	Spontaneous rupture of synovium and tendon	0.000863246699814
+T87	Complications peculiar to reattachment and amputation	0.0011777995653
+H11	Other disorders of conjunctiva	-0.000148945908865
+O13	Gestational [pregnancy-induced] hypertension without significant proteinuria	-0.000623631055956
+D33	Benign neoplasm of brain and other parts of central nervous system	-0.00219193229322
+N45	Orchitis and epididymitis	-0.0038808395045
+L03	Cellulitis	0.00593693308729
+K74	Fibrosis and cirrhosis of liver	-0.00327430995485
+I33	Acute and subacute endocarditis	-0.00197094404829
+E14	Unspecified diabetes mellitus	-0.000415231047385
+N50	Other disorders of male genital organs	0.00298879808038
+M47	Spondylosis	0.00359463051011
+Z40	Prophylactic surgery	-0.00177427954296
+B07	Viral warts	-0.00148560489094
+S12	Fracture of neck	0.00103746665473
+H34	Retinal vascular occlusions	0.00259537746152
+N81	Female genital prolapse	0.0113014373949
+O34	Maternal care for known or suspected abnormality of pelvic organs	0.00203571323755
+F32	Depressive episode	0.00311167008857
+Z50	Care involving use of rehabilitation procedures	0.00103020211143
+S09	Other and unspecified injuries of head	0.00550618357806
+K90	Intestinal malabsorption	0.00248500317343
+N92	Excessive, frequent and irregular menstruation	0.00696070863092
+O21	Excessive vomiting in pregnancy	-0.00232313110795
+M20	Acquired deformities of fingers and toes	0.00761779398352
+T40	Poisoning by narcotics and psychodysleptics [hallucinogens]	0.00345364043756
+K82	Other diseases of gallbladder	-0.000941471164799
+H52	Disorders of refraction and accommodation	-0.000334901433851
+Q38	Other congenital malformations of tongue, mouth and pharynx	0.00181031908034
+Z39	Postpartum care and examination	-0.000543430521868
+J45	Asthma	0.00136950237053
+S22	Fracture of rib(s), sternum and thoracic spine	-0.000500296738732
+I70	Atherosclerosis	0.00349395133979
+H81	Disorders of vestibular function	0.00144568447258
+Z01	Other special examinations and investigations of persons without complaint or reported diagnosis	0.00302570276917
+M06	Other rheumatoid arthritis	-0.000841389813971
+I64	Stroke, not specified as haemorrhage or infarction	0.00087917011236
+H72	Perforation of tympanic membrane	0.00259392453438
+R61	Hyperhidrosis	-0.00157995797102
+Q18	Other congenital malformations of face and neck	0.000486207614032
+S46	Injury of muscle and tendon at shoulder and upper arm level	0.00293354896045
+I51	Complications and ill-defined descriptions of heart disease	0.00117222645652
+F41	Other anxiety disorders	0.000977751117013
+D44	Neoplasm of uncertain or unknown behaviour of endocrine glands	-0.00283915630762
+J31	Chronic rhinitis, nasopharyngitis and pharyngitis	0.0014579864307
+I47	Paroxysmal tachycardia	0.00216139479407
+R41	Other symptoms and signs involving cognitive functions and awareness	0.00153888596786
+D50	Iron deficiency anaemia	-0.00125728708291
+C25	Malignant neoplasm of pancreas	0.00330911398999
+S69	Other and unspecified injuries of wrist and hand	0.00119773662376
+J01	Acute sinusitis	0.00262012382763
+K14	Diseases of tongue	0.00470023193699
+R59	Enlarged lymph nodes	0.000193972071129
+G35	Multiple sclerosis	0.00199009935235
+N31	Neuromuscular dysfunction of bladder, not elsewhere classified	0.00208458462215
+C50	Malignant neoplasm of breast	0.0118272681648
+J13	Pneumonia due to Streptococcus pneumoniae	-0.000703850667414
+K08	Other disorders of teeth and supporting structures	0.00333728769346
+I84	Haemorrhoids	0.00706694675847
+R20	Disturbances of skin sensation	0.00109875648539
+C44	Other malignant neoplasms of skin	0.0112045652458
+K37	Unspecified appendicitis	0.00115427202128
+R30	Pain associated with micturition	0.00114020835778
+O46	Antepartum haemorrhage, not elsewhere classified	0.0014278073365
+N12	Tubulo-interstitial nephritis, not specified as acute or chronic	-0.0024422700812
+C71	Malignant neoplasm of brain	0.000169499864944
+Z87	Personal history of other diseases and conditions	-0.000422037588341
+K26	Duodenal ulcer	-0.000842867395311
+R09	Other symptoms and signs involving the circulatory and respiratory systems	-0.00323431523159
+D10	Benign neoplasm of mouth and pharynx	-0.000709409101798
+N61	Inflammatory disorders of breast	0.00229616518424
+M75	Shoulder lesions	0.00398103443023
+M95	Other acquired deformities of musculoskeletal system and connective tissue	-0.000317251441633
+K59	Other functional intestinal disorders	0.00144315310949
+B50	Plasmodium falciparum malaria	-0.000569330365147
+R14	Flatulence and related conditions	0.00507880400204
+O62	Abnormalities of forces of labour	3.84594172984e-05
+D21	Other benign neoplasms of connective and other soft tissue	0.000390545134917
+N76	Other inflammation of vagina and vulva	-0.000729947496107
+M84	Disorders of continuity of bone	0.00237770549225
+M67	Other disorders of synovium and tendon	0.00458578942144
+L73	Other follicular disorders	-0.00130469308776
+L72	Follicular cysts of skin and subcutaneous tissue	0.00247945712565
+40001_C029	Tongue, unspecified	0.147839849747
+40001_C159	Oesophagus, unspecified	0.015021631277
+40001_C170	Duodenum	0.0462577408054
+40001_C187	Sigmoid colon	-0.107294365373
+40001_C20	Malignant neoplasm of rectum	-0.0428662995876
+40001_C221	Intrahepatic bile duct carcinoma	0.145477147933
+40001_C260	Intestinal tract, part unspecified	0.0556149476893
+40001_C439	Malignant melanoma of skin, unspecified	-0.108629302286
+40001_C482	Peritoneum, unspecified	-0.0291344820222
+40001_C539	Cervix uteri, unspecified	-0.0909112894649
+40001_C56	Malignant neoplasm of ovary	-0.024608518687
+40001_C66	Malignant neoplasm of ureter	0.0973695230529
+40001_C786	Secondary malignant neoplasm of retroperitoneum and peritoneum	0.128644202776
+40001_C710	Cerebrum, except lobes and ventricles	0.100358363385
+40001_C809	Malignant neoplasm, unspecified	-0.0418833959307
+40001_C833	Large cell (diffuse)	-0.063677011228
+40001_C859	Non-Hodgkin's lymphoma, unspecified type	-0.126503543764
+40001_C911	Chronic lymphocytic leukaemia	0.0590850853057
+40001_C97	Malignant neoplasms of independent (primary) multiple sites	-0.230884565934
+40001_E149	Without complications	-0.223887825789
+40001_F03	Unspecified dementia	-0.0687833660558
+40001_G309	Alzheimer's disease, unspecified	-0.0528947061814
+40001_G409	Epilepsy, unspecified	-0.0394521066434
+40001_I119	Hypertensive heart disease without (congestive) heart failure	-0.128893668098
+40001_I255	Ischaemic cardiomyopathy	-0.0132703500902
+40001_I330	Acute and subacute infective endocarditis	-0.0135133436702
+40001_I38	Endocarditis, valve unspecified	0.012865318409
+40001_I48	Atrial fibrillation and flutter	0.119599113602
+40001_I517	Cardiomegaly	0.128688072645
+40001_I619	Intracerebral haemorrhage, unspecified	0.1199727761
+40001_I64	Stroke, not specified as haemorrhage or infarction	0.00583524902248
+40001_I711	Thoracic aortic aneurysm, ruptured	0.102533412768
+40001_I802	Phlebitis and thrombophlebitis of other deep vessels of lower extremities	-0.116304366192
+40001_J189	Pneumonia, unspecified	-0.0492356470805
+40001_J441	Chronic obstructive pulmonary disease with acute exacerbation, unspecified	-0.0690398743909
+40001_J47	Bronchiectasis	-0.0293852241547
+40001_J849	Interstitial pulmonary disease, unspecified	0.0706354836497
+40001_K550	Acute vascular disorders of intestine	-0.032541921774
+40001_K578	Diverticular disease of intestine, part unspecified, with perforation and abscess	-0.063053377923
+40001_K703	Alcoholic cirrhosis of liver	0.0572837858819
+40001_K746	Other and unspecified cirrhosis of liver	-0.0508394803767
+40001_K830	Cholangitis	0.0672722079318
+40001_M069	Rheumatoid arthritis, unspecified	0.0901525931903
+40001_U509	Inquest Adjourned Death	0.0309984611862
+40001_W190	Home	0.0162517936777
+40001_X599	Unspecified place	-0.0424573020122
+40001_X780	Home	0.0469323884748
+40001_A419	Septicaemia, unspecified	0.1204758423
+40001_C160	Cardia	0.109493820587
+40001_C109	Oropharynx, unspecified	-0.0778152346231
+40001_C180	Caecum	0.135177388607
+40001_C189	Colon, unspecified	-0.0961927820623
+40001_C210	Anus, unspecified	-0.122756717362
+40001_C23	Malignant neoplasm of gallbladder	0.109764270281
+40001_C450	Mesothelioma of pleura	0.0902751224179
+40001_C269	Ill-defined sites within the digestive system	0.162211328395
+40001_C499	Connective and soft tissue, unspecified	0.0435372062496
+40001_C541	Endometrium	0.104345184487
+40001_C61	Malignant neoplasm of prostate	0.0779695739992
+40001_C679	Bladder, unspecified	0.0512410225843
+40001_C719	Brain, unspecified	0.012478662867
+40001_C80	Malignant neoplasm without specification of site	0.107534925075
+40001_C819	Hodgkin's disease, unspecified	0.0790801431328
+40001_C845	Other and unspecified T-cell lymphomas	0.0570261904627
+40001_C900	Multiple myeloma	-0.0264428850486
+40001_D432	Brain, unspecified	-0.129203546219
+40001_C920	Acute myeloid leukaemia	-0.0255601255395
+40001_E854	Organ-limited amyloidosis	0.213879737348
+40001_G122	Motor neuron disease	-0.00770801130638
+40001_G318	Other specified degenerative diseases of nervous system	0.0581530912452
+40001_G903	Multisystem degeneration	0.104683998264
+40001_I219	Acute myocardial infarction, unspecified	-0.278996727358
+40001_I350	Aortic (valve) stenosis	0.0706584865595
+40001_I259	Chronic ischaemic heart disease, unspecified	0.146980937679
+40001_I420	Dilated cardiomyopathy	0.0198131634053
+40001_I500	Congestive heart failure	-0.00982367846512
+40001_I607	Subarachnoid haemorrhage from intracranial artery, unspecified	0.0920988071629
+40001_I629	Intracranial haemorrhage (nontraumatic), unspecified	0.209119386189
+40001_I713	Abdominal aortic aneurysm, ruptured	-0.0616246435308
+40001_I679	Cerebrovascular disease, unspecified	-0.10234770121
+40001_J180	Bronchopneumonia, unspecified	0.0131080969358
+40001_J439	Emphysema, unspecified	0.00619055773324
+40001_J449	Chronic obstructive pulmonary disease, unspecified	0.00665911711211
+40001_J690	Pneumonitis due to food and vomit	-0.120030965389
+40001_J988	Other specified respiratory disorders	0.212058115508
+40001_K559	Vascular disorder of intestine, unspecified	-0.00561396449017
+40001_K631	Perforation of intestine (nontraumatic)	0.0787622491355
+40001_K704	Alcoholic hepatic failure	0.0298803881037
+40001_K760	Fatty (change of) liver, not elsewhere classified	0.134329939079
+40001_K859	Acute pancreatitis, unspecified	-0.0912219810476
+40001_N390	Urinary tract infection, site not specified	0.0486599590357
+40001_V499	Car occupant [any] injured in unspecified traffic accident	-0.0116802774305
+40001_X420	Home	-0.0208748601276
+40001_X700	Home	-0.237384056065
+40001_A810	Creutzfeldt-Jakob disease	0.179724579557
+40001_C140	Pharynx, unspecified	0.0327386771029
+40001_C181	Appendix	-0.221987271554
+40001_C169	Stomach, unspecified	0.105701448918
+40001_C19	Malignant neoplasm of rectosigmoid junction	-0.108773326583
+40001_C220	Liver cell carcinoma	0.0666846641223
+40001_C259	Pancreas, unspecified	0.102076300318
+40001_C329	Larynx, unspecified	-0.076401117478
+40001_C459	Mesothelioma, unspecified	0.177276798701
+40001_C509	Breast, unspecified	-0.0548058670047
+40001_C55	Malignant neoplasm of uterus, part unspecified	-0.00536428519667
+40001_C64	Malignant neoplasm of kidney, except renal pelvis	0.0949587908833
+40001_C689	Urinary organ, unspecified	0.0101808319387
+40001_C73	Malignant neoplasm of thyroid gland	0.0813721001293
+40001_C800	Malignant neoplasm, primary site unknown, so stated	0.0398714779746
+40001_C829	Follicular non-Hodgkin's lymphoma, unspecified	0.161722554139
+40001_C851	B-cell lymphoma, unspecified	-0.0599774034994
+40001_C910	Acute lymphoblastic leukaemia	0.0571763034083
+40001_C921	Chronic myeloid leukaemia	-0.0099768918249
+40001_D469	Myelodysplastic syndrome, unspecified	-0.160217002415
+40001_F019	Vascular dementia, unspecified	-0.00502402102456
+40001_G20	Parkinson's disease	-0.128427843583
+40001_G35	Multiple sclerosis	-0.0134440215964
+40001_I110	Hypertensive heart disease with (congestive) heart failure	-0.0601773035315
+40001_I269	Pulmonary embolism without mention of acute cor pulmonale	0.0398463500578
+40001_I359	Aortic valve disorder, unspecified	-0.0398709567624
+40001_I251	Atherosclerotic heart disease	0.00383105918689
+40001_I429	Cardiomyopathy, unspecified	-0.0208244065898
+40001_I509	Heart failure, unspecified	-0.0898232468866
+40001_I609	Subarachnoid haemorrhage, unspecified	0.0649165794342
+40001_I639	Cerebral infarction, unspecified	-0.190642696901
+40001_I710	Dissection of aorta [any part]	-0.0928600175064
+40001_I739	Peripheral vascular disease, unspecified	0.0607640037128
+40001_J181	Lobar pneumonia, unspecified	0.0981420147616
+40001_J440	Chronic obstructive pulmonary disease with acute lower respiratory infection	-0.00675980410029
+40001_J459	Asthma, unspecified	0.024701031507
+40001_J841	Other interstitial pulmonary diseases with fibrosis	0.267700118559
+40001_K264	Chronic or unspecified with haemorrhage	-0.0234055034887
+40001_K566	Other and unspecified intestinal obstruction	0.0459201145445
+40001_K701	Alcoholic hepatitis	0.207630139159
+40001_K709	Alcoholic liver disease, unspecified	0.132554905386
+40001_K802	Calculus of gallbladder without cholecystitis	-0.16861784156
+40001_K922	Gastro-intestinal haemorrhage, unspecified	0.0636914938427
+40001_W100	Home	0.0741789179867
+40001_R99	Other ill-defined and unspecified causes of mortality	0.0839843726125
+40001_X590	Home	-0.0246264984694
+40001_X708	Other specified place	0.171610488825

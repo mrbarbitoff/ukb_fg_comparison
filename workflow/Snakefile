@@ -1,0 +1,155 @@
+import pandas as pd
+import subprocess
+
+configfile: "../config/config.yaml"
+
+onsuccess:
+    print("Workflow finished, no error")
+
+FINN_MANIFEST = config["FINN_MANIFEST"]
+LDAK = config["LDAK"]
+TAGGINGS = config["TAGGINGS"]
+THRESHOLD=5e-08
+CORR_TABLE = config["CORR_TABLE"]
+UK_IDS = config["UK_IDS"]  # downloaded data
+FINN_IDS = config["FINN_IDS"]
+GLIST = config["GLIST"]
+PLINK_GENOTYPE = config["PLINK_GENOTYPE"]
+VARIANTS = config["VARIANTS"]
+SNP_TEMPLATE = "../resources/SNP_table_template.tsv"
+THREADS = 1
+META_IDS = config["META_IDS"]
+
+LD_SCORES = "../resources/ldscores.tsv"
+
+correspondence_table = pd.read_table(CORR_TABLE)
+uk_sample_table = pd.read_table(UK_IDS, header=None, names=("Samples", ))
+uk_downloaded_samples = set(uk_sample_table.Samples.unique())
+finn_sample_table = pd.read_table(FINN_IDS, header=None, names=("Samples", ))
+finn_downloaded_samples = set(finn_sample_table.Samples.unique())
+
+finn_samples = set(correspondence_table.Finn_code.unique()) & finn_downloaded_samples  # actually present and interesting samples
+uk_samples = set(correspondence_table.UK_code.unique()) & uk_downloaded_samples
+
+finn_samples = list(finn_samples)
+uk_samples = list(uk_samples)
+
+meta_sample_table = pd.read_table(META_IDS, header=None, names=("Samples", ))
+meta_samples = list(meta_sample_table.Samples.unique())
+
+wildcard_constraints:
+    uk_sample = "|".join(uk_samples),
+    finn_sample = "|".join(finn_samples),
+    meta_sample = "|".join(meta_samples)
+
+# read number of samples from FINNGEN manifest
+finn_manifest_df = pd.read_table(FINN_MANIFEST)
+finn_manifest_df["num_samples"] = finn_manifest_df["n_cases"] + finn_manifest_df["n_controls"]
+finn_manifest_dict = finn_manifest_df.set_index("phenocode").to_dict()['num_samples']
+
+rule all:
+    input:
+        "../results/updated_table.tsv",
+        "../results/SNP_table.tsv",
+        "../results/nominal_sign_table.tsv",
+        "../results/clump_intersection_table.tsv",
+    output:
+        touch(".status")
+
+rule rsid_lookup:
+    input:
+        SNP_template=SNP_TEMPLATE,
+    output:
+        rsid_lookup="../results/rsid_lookup.json",
+    script:
+        "scripts/create_rsid_lookup.py"
+
+rule prep_SNP_template:
+    input:
+        finn_example_dataset="../resources/finngen/J10_VOCALLARYNX_hg19lifted.tsv.gz",
+        uk_variants=VARIANTS,
+    output:
+        SNP_template=SNP_TEMPLATE,
+    script:
+        "scripts/prep_SNP_template.R"
+
+rule prep_second_priority_table:
+    input:
+        corr_table=CORR_TABLE,
+    output:
+        second_priority="../results/second_priority_table.tsv",
+    script:
+        "scripts/prep_second_priority.R"
+
+rule get_meta_SNPs:
+    input:
+        meta_files=expand("../resources/meta/{meta_sample}1.TBL.gz", meta_sample = meta_samples),
+    output:
+        meta_rsids="../results/meta_rsids.txt",
+    script:
+        "scripts/get_meta_SNPs.py"
+
+rule prep_beta_reference:
+    input:
+        finn_pheno='../resources/meta_pheno_finn.txt',
+        uk_pheno='../resources/meta_pheno_uk.txt',
+        SNPs='../resources/meta_specific_SNP.txt',
+    output:
+        beta_reference="../resources/beta_reference.json",
+    script:
+        "scripts/create_smol_beta_reference.py"
+
+rule gather_tables:
+    input:
+        corr_table=CORR_TABLE,
+        rsid_lookup="../results/rsid_lookup.json",
+        h2_estimates=expand("../results/LDAK/{sample}.hers", sample=uk_samples + finn_samples),
+        filtered_tables=expand("../results/filtered/{sample}_filtered.tsv", sample=uk_samples + finn_samples + meta_samples),
+        plink_bed=expand("../results/plink/{sample}_signSNP_clump.bed", sample=uk_samples + finn_samples + meta_samples),
+    output:
+        updated_table="../results/updated_table.tsv"
+    script:
+        "scripts/gather_tables.py"
+
+rule clump_intersection:
+    input:
+        corr_table=CORR_TABLE,
+        plink_bed=expand("../results/plink/{sample}_signSNP_clump.bed", sample=uk_samples + finn_samples + meta_samples),
+    output:
+        clump_intersections="../results/clump_intersection_table.tsv"
+    script:
+        "scripts/clump_intersection.py"
+
+rule nominal_significance_SNPs:
+    input:
+        meta_rsids="../results/meta_rsids.txt",
+        rsid_lookup="../results/rsid_lookup.json",
+        SNP_template=SNP_TEMPLATE,
+        second_priority="../results/second_priority_table.tsv",
+        corr_table=CORR_TABLE,
+        filtered_SNP_table="../results/filtered_SNP_table.tsv",
+        nominal_filtered_tables=expand("../results/filtered/nominal/{sample}_filtered.tsv", sample=uk_samples + finn_samples),
+    output:
+        nominal_sign_table="../results/nominal_sign_table.tsv"
+    script:
+        "scripts/gather_nominal_sign_SNPs.py"
+
+rule SNP_table:
+    input:
+        beta_reference="../resources/beta_reference.json",
+        corr_table=CORR_TABLE,
+        ld_scores=LD_SCORES,
+        second_priority="../results/second_priority_table.tsv",
+        rsid_lookup="../results/rsid_lookup.json",
+        SNP_template=SNP_TEMPLATE,
+        plink_clumped=expand("../results/plink/{sample}.clumped", sample=uk_samples + finn_samples + meta_samples),
+        filtered_tables=expand("../results/filtered/{sample}_filtered.tsv", sample=uk_samples + finn_samples + meta_samples),
+    output:
+        phenonames_table="../results/SNP_table.tsv",
+        filtered_SNP_table="../results/filtered_SNP_table.tsv",
+    script:
+        "scripts/gather_SNP_tables.py"
+
+include: "rules/plink_clump.smk"
+include: "rules/LDAK.smk"
+include: "rules/sign_SNPs.smk"
