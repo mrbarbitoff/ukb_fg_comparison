@@ -26,8 +26,6 @@ with open(finn_pheno) as finn_input_pheno, open(uk_pheno) as uk_input_pheno, ope
 
 SNP_list = set(SNP_list)
 
-print(f"Starting {datetime.now().strftime('%D:%H:%M:%S')}")
-
 for finn_id in finn_list:
     print(f"Processing {finn_id}")
     with gzip.open(f"../resources/finngen/{finn_id}_hg19lifted.tsv.gz", "rt") as finn_data:
@@ -53,8 +51,6 @@ for uk_id in uk_list:
                 result[uk_varid][uk_id] = uk_line.split()[8]
 else:
     print("UK processing complete")
-
-print(f"Finishing {datetime.now().strftime('%D:%H:%M:%S')}")
 
 with open(snakemake.output.beta_reference, 'w') as beta_ref:
     json.dump(result, beta_ref)

@@ -7,20 +7,16 @@ onsuccess:
     print("Workflow finished, no error")
 
 FINN_MANIFEST = config["FINN_MANIFEST"]
-LDAK = config["LDAK"]
-TAGGINGS = config["TAGGINGS"]
 THRESHOLD=5e-08
 CORR_TABLE = config["CORR_TABLE"]
 UK_IDS = config["UK_IDS"]  # downloaded data
 FINN_IDS = config["FINN_IDS"]
-GLIST = config["GLIST"]
 PLINK_GENOTYPE = config["PLINK_GENOTYPE"]
 VARIANTS = config["VARIANTS"]
 SNP_TEMPLATE = "../resources/SNP_table_template.tsv"
 THREADS = 1
 META_IDS = config["META_IDS"]
-
-LD_SCORES = "../resources/ldscores.tsv"
+LD_SCORES = config["LD_SCORES"]
 
 correspondence_table = pd.read_table(CORR_TABLE)
 uk_sample_table = pd.read_table(UK_IDS, header=None, names=("Samples", ))
@@ -28,7 +24,7 @@ uk_downloaded_samples = set(uk_sample_table.Samples.unique())
 finn_sample_table = pd.read_table(FINN_IDS, header=None, names=("Samples", ))
 finn_downloaded_samples = set(finn_sample_table.Samples.unique())
 
-finn_samples = set(correspondence_table.Finn_code.unique()) & finn_downloaded_samples  # actually present and interesting samples
+finn_samples = set(correspondence_table.Finn_code.unique()) & finn_downloaded_samples  # actually present samples
 uk_samples = set(correspondence_table.UK_code.unique()) & uk_downloaded_samples
 
 finn_samples = list(finn_samples)
@@ -49,10 +45,13 @@ finn_manifest_dict = finn_manifest_df.set_index("phenocode").to_dict()['num_samp
 
 rule all:
     input:
-        "../results/updated_table.tsv",
-        "../results/SNP_table.tsv",
-        "../results/nominal_sign_table.tsv",
-        "../results/clump_intersection_table.tsv",
+        "../results/fig1.pdf",
+        "../results/fig2.pdf",
+        "../results/fig3.pdf",
+        "../results/Supp1.pdf",
+        "../results/Supp2.pdf",
+        "../results/Supp3.pdf",
+        "../results/Supp4.pdf",
     output:
         touch(".status")
 
@@ -97,13 +96,13 @@ rule prep_beta_reference:
     output:
         beta_reference="../resources/beta_reference.json",
     script:
-        "scripts/create_smol_beta_reference.py"
+        "scripts/create_small_beta_reference.py"
 
 rule gather_tables:
     input:
         corr_table=CORR_TABLE,
         rsid_lookup="../results/rsid_lookup.json",
-        h2_estimates=expand("../results/LDAK/{sample}.hers", sample=uk_samples + finn_samples),
+
         filtered_tables=expand("../results/filtered/{sample}_filtered.tsv", sample=uk_samples + finn_samples + meta_samples),
         plink_bed=expand("../results/plink/{sample}_signSNP_clump.bed", sample=uk_samples + finn_samples + meta_samples),
     output:
@@ -150,6 +149,23 @@ rule SNP_table:
     script:
         "scripts/gather_SNP_tables.py"
 
+rule analyze_tables:
+    input:
+        filtered_SNP_table="../results/filtered_SNP_table.tsv",
+        nominal_sign_table="../results/nominal_sign_table.tsv",
+        updated_table="../results/updated_table.tsv",
+        clump_intersections="../results/clump_intersection_table.tsv",
+    output:
+        "../results/fig1.pdf",
+        "../results/fig2.pdf",
+        "../results/fig3.pdf",
+        "../results/Supp1.pdf",
+        "../results/Supp2.pdf",
+        "../results/Supp3.pdf",
+        "../results/Supp4.pdf",
+    script:
+        "scripts/analysis.Rmd"
+
 include: "rules/plink_clump.smk"
-include: "rules/LDAK.smk"
+
 include: "rules/sign_SNPs.smk"

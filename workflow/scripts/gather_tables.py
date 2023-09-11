@@ -9,12 +9,8 @@ with open(snakemake.input.rsid_lookup, 'r') as fp:
 
 corr_table = pd.read_table(snakemake.input.corr_table)
 
-finn_h2 = list()
-finn_h2_sd = list()
 finn_SNP_n = list()
 
-uk_h2 = list()
-uk_h2_sd = list()
 uk_SNP_n = list()
 
 meta_SNP_n = list()
@@ -33,44 +29,13 @@ intersect_clump_fm_n = list()
 intersect_clump_um_n = list()
 intersect_clump_fum_n = list()
 
-all_added_columns = [finn_h2, finn_h2_sd, finn_SNP_n, uk_h2, uk_h2_sd, uk_SNP_n, meta_SNP_n, shared_SNP_fu_n, shared_SNP_fm_n, shared_SNP_um_n, shared_SNP_fum_n, uk_clump_n, finn_clump_n, meta_clump_n, intersect_clump_fu_n, intersect_clump_fm_n, intersect_clump_um_n, intersect_clump_fum_n]
+all_added_columns = [finn_SNP_n, uk_SNP_n, meta_SNP_n, shared_SNP_fu_n, shared_SNP_fm_n, shared_SNP_um_n, shared_SNP_fum_n, uk_clump_n, finn_clump_n, meta_clump_n, intersect_clump_fu_n, intersect_clump_fm_n, intersect_clump_um_n, intersect_clump_fum_n]
 
 for index, row in corr_table.iterrows():
     finn_id = row["Finn_code"]
     uk_id = row["UK_code"]
     meta_id = f'{finn_id}___{uk_id}'
 
-    # check if files exist. Warning: this skips a row if either of finn and uk summaries is absent
-    if not all(f"../results/LDAK/{x}.hers" in snakemake.input.h2_estimates for x in (finn_id, uk_id)):
-        for l in all_added_columns:
-            l.append("NA")
-        continue
-
-
-    # Part about h2
-    with open(f"../results/LDAK/{finn_id}.hers") as finn_her:
-        try:
-            fh2, fh2sd = finn_her.readlines()[-1].split()[1:3]
-        except ValueError:
-            print(f"Value error for {finn_id}")
-            fh2, fh2sd = "NA", "NA"
-
-        finn_h2.append(fh2)
-        finn_h2_sd.append(fh2sd)
-
-
-
-    with open(f"../results/LDAK/{uk_id}.hers") as uk_her:
-        try:
-            uh2, uh2sd = uk_her.readlines()[-1].split()[1:3]
-        except ValueError:
-            print(f"Value error for {uk_id}")
-            uh2, uh2sd = "NA", "NA"
-
-        uk_h2.append(uh2)
-        uk_h2_sd.append(uh2sd)
-
-    # Part about SNPs
 
     finn_SNPs = set()
     uk_SNPs = set()
@@ -138,12 +103,9 @@ for index, row in corr_table.iterrows():
     intersect_clump_fum_n.append(len(open(intersected_fum_filename).readlines()))
 
 # add new columns to df
-corr_table['finn_h2'] = finn_h2
-corr_table['finn_h2_sd'] = finn_h2_sd
+
 corr_table['finn_SNP_n'] = finn_SNP_n
 
-corr_table['uk_h2'] = uk_h2
-corr_table['uk_h2_sd'] = uk_h2_sd
 corr_table['uk_SNP_n'] = uk_SNP_n
 
 corr_table['meta_SNP_n'] = meta_SNP_n

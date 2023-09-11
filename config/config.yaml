@@ -1,0 +1,9 @@
+CORR_TABLE: ../resources/Finn_uk_table.tsv
+PLINK_GENOTYPE: ../resources/1kg/1kg
+VARIANTS: ../resources/variants.tsv.bgz
+FINN_MANIFEST: ../resources/R6_manifest.tsv
+UK_IDS: ../resources/UKBB_ids_v2.txt
+FINN_IDS: ../resources/Finn_ids.txt
+SNP_TEMPLATE: ../resources/SNP_table_template.tsv
+META_IDS: ../resources/Meta_ids.txt
+LD_SCORES: ../resources/ldscores.tsv
