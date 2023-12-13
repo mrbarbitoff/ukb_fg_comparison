@@ -1,0 +1,15 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - r-ggvenn
+  - r-tidyverse
+  - r-reshape2
+  - r-vioplot
+  - r-viridis
+  - r-egg
+  - r-ggpubr
+  - r-ggupset
+  - r-tidytext
+  - r-hexbin
+  - r-rcolorbrewer

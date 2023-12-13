@@ -1,101 +1,65 @@
-rule prep_uk_clump:
-    input:
-        sum_table="../resources/UKB/{uk_sample}.gwas.imputed_v3.both_sexes.tsv.bgz",
-        variants=VARIANTS
-    output:
-        temp("../results/{uk_sample}.annot.tsv")
-    shell:
-        "paste -d, <(zcat {input.variants}) <(zcat {input.sum_table}) | grep -E '(false|low_confidence)' > {output}"
+pval_col_lookup = {"finn": "FINNGEN_pval", "ukbb": "UKBB_pval", "meta": "all_inv_var_meta_p"}
 
-rule plink_clump_uk:
+rule plink_total_clump:
     input:
-        "../results/{uk_sample}.annot.tsv"
-    output:
-        "../results/plink/{uk_sample}.clumped.ranges",
-        "../results/plink/{uk_sample}.clumped"
+        sum_table="../resources/meta/{sample}_meta_out.tsv.gz",
     params:
         threshold=THRESHOLD,
         snp_field="rsid",
-        output_prefix="../results/plink/{uk_sample}"
+        pval_field=lambda wildcards: pval_col_lookup[wildcards.dataset],
+        output_prefix="../results/plink/{dataset}/{sample}",
     conda:
         "../envs/plink.yaml"
-    shell:
-        "plink --bfile {PLINK_GENOTYPE} --clump {input} "
-        "--clump-p1 {params.threshold} "
-        "--clump-kb 250 "
-        "--clump-snp-field {params.snp_field} "
-        "--clump-field pval --allow-extra-chr "
-        "--out {params.output_prefix} --clump-range {GLIST};"
-        "test -f {output[0]} || touch {output[0]};"
-        "test -f {output[1]} || touch {output[1]};"  # empty plink output workaround
-
-rule plink_clump_finn:
-    input:
-        "../resources/finngen/{finn_sample}_hg19lifted.tsv.gz"
+    wildcard_constraints:
+        dataset="finn|ukbb|meta"
     output:
-        "../results/plink/{finn_sample}.clumped.ranges",
-        "../results/plink/{finn_sample}.clumped"
-    params:
-        threshold=THRESHOLD,
-        snp_field="rsids",
-        output_prefix="../results/plink/{finn_sample}"
-    conda:
-        "../envs/plink.yaml"
+        "../results/plink/{dataset}/{sample}.clumped.ranges",
+        "../results/plink/{dataset}/{sample}.clumped",
     shell:
-        "plink --bfile {PLINK_GENOTYPE} --clump {input} "
+        "plink --bfile {PLINK_GENOTYPE} "
+        "--clump {input} --clump-kb 250 "
         "--clump-p1 {params.threshold} "
-        "--clump-kb 250 "
         "--clump-snp-field {params.snp_field} "
-        "--clump-field pval --allow-extra-chr "
-        "--out {params.output_prefix} --clump-range {GLIST};"
+        "--clump-field {params.pval_field} "
+        "--allow-extra-chr "
+        "--out {params.output_prefix} "
+        "--clump-range {GLIST};"
         "test -f {output[0]} || touch {output[0]};"
-        "test -f {output[1]} || touch {output[1]};"  # empty plink output workaround
-
-rule plink_clump_meta:
-    input:
-        "../resources/meta/{meta_sample}1.TBL.gz"
-    output:
-        "../results/plink/{meta_sample}.clumped.ranges",
-        "../results/plink/{meta_sample}.clumped"
-    params:
-        threshold=THRESHOLD,
-        snp_field="MarkerName",
-        output_prefix="../results/plink/{meta_sample}"
-    conda:
-        "../envs/plink.yaml"
-    shell:
-        "plink --bfile {PLINK_GENOTYPE} --clump {input} "
-        "--clump-p1 {params.threshold} "
-        "--clump-kb 250 "
-        "--clump-snp-field {params.snp_field} "
-        "--clump-field P-value --allow-extra-chr "
-        "--out {params.output_prefix} --clump-range {GLIST};"
-        "test -f {output[0]} || touch {output[0]};"
-        "test -f {output[1]} || touch {output[1]};"  # empty plink output workaround
+        "test -f {output[1]} || touch {output[1]};"
 
 rule range2bed:
     input:
-        range="../results/plink/{sample}.clumped.ranges",
+        range="../results/plink/{dataset}/{sample}.clumped.ranges",
         rsid_lookup="../results/rsid_lookup.json",
     output:
-        bed=temp("../results/plink/{sample}_signSNP_clump.unmerged.bed")
+        bed=temp("../results/plink/{dataset}/{sample}_signSNP_clump.unmerged.bed")
     params:
+        current_dataset=lambda wc: wc.get("dataset"),
         flank=50000
     script:
         "../scripts/range2bed.py"
 
 rule sort_bed:
     input:
-        bed="../results/plink/{sample}_signSNP_clump.unmerged.bed",
+        bed="../results/plink/{dataset}/{sample}_signSNP_clump.unmerged.bed",
     output:
-        bed=temp("../results/plink/{sample}_signSNP_clump.sorted.bed"),
+        bed=temp("../results/plink/{dataset}/{sample}_signSNP_clump.sorted.bed"),
     shell:
         "sort -k1,1 -k2,2n {input.bed} > {output.bed}"
 
 rule merge_bed:
     input:
-        bed="../results/plink/{sample}_signSNP_clump.sorted.bed",
+        bed="../results/plink/{dataset}/{sample}_signSNP_clump.sorted.bed",
     output:
-        bed="../results/plink/{sample}_signSNP_clump.bed",
+        bed="../results/plink/{dataset}/{sample}_signSNP_clump.bed",
     shell:
-        "bedtools merge -i {input.bed} > {output.bed}"
+        "bedtools merge -i {input.bed} -c 4 -o distinct > {output.bed}"
+
+rule total_bed:
+    input:
+        plink_bed=expand("../results/plink/{dataset}/{sample}_signSNP_clump.bed", sample=samples, dataset=["finn", "ukbb", "meta"]),
+    output:
+        total_bed="../results/merged.total.bed",
+    shell:
+        "cat ../results/plink/*/*.bed | sort -k1,1 -k2,2n | "
+        "bedtools merge -i stdin -c 4 -o -collapse -delim '|' > {output.total_bed};"
