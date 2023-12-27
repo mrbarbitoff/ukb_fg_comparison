@@ -20,15 +20,17 @@ SNP_data <- read_tsv(snakemake@input[["filtered_SNP_table"]], col_types = "cnncn
 
 nominal_data <- read_tsv(snakemake@input[["nominal_sign_table"]], col_types = "cnnccici", col_names = c("varid", "Finn_MAF", "UKB_MAF", "rsid", "nominal_phenonames_finn", "nom_pleio_finn", "nominal_phenonames_uk", "nom_pleio_uk"))
 
+repr_data <- read_tsv(snakemake@input[["repr_sign_table"]], col_types = "cnnccici", col_names = c("varid", "Finn_MAF", "UKB_MAF", "rsid", "repr_phenonames_finn", "repr_pleio_finn", "repr_phenonames_uk", "repr_pleio_uk"))
 
 SNP_data <- SNP_data %>%
-  left_join(nominal_data, by = c("varid", "Finn_MAF", "UKB_MAF", "rsid"))
+  left_join(nominal_data, by = c("varid", "Finn_MAF", "UKB_MAF", "rsid")) %>%
+  left_join(repr_data, by = c("varid", "Finn_MAF", "UKB_MAF", "rsid"))
 
 index_SNPs <- SNP_data %>%
   filter(!is.na(is_index)) %>%
   filter(meta_index | ukbb_index | finn_index)
 
-total_bed <- read_tsv(snakemake@input[["updated_table"]], col_names = c("chr", "start", "stop", "index_field")) %>%
+total_bed <- read_tsv(snakemake@input[["total_bed"]], col_names = c("chr", "start", "stop", "index_field")) %>%
   mutate(clump_id = paste(chr, start, stop, sep = ":"),
          meta_index = str_detect(index_field, "meta"),
          ukbb_index = str_detect(index_field, "ukbb"),
@@ -71,7 +73,7 @@ MAF_plot <- df %>%
   melt(measure = c("Finn_MAF", "UKB_MAF"), variable = "SNP_source") %>%
   ggplot(aes(x = source, y = value, fill = source))+
   geom_violin(width=1)+
-  geom_boxplot(width=0.1, color="grey", fill="white", outlier.shape = NA)+
+  geom_boxplot(width=0.1, color="black", fill="white", outlier.shape = NA)+
   scale_fill_manual(values = col_palette, name = element_blank())+
   theme_bw()+
   theme(text = element_text(size = 20), axis.text.x=element_blank(), strip.background = element_blank())+
@@ -87,7 +89,7 @@ MAF_diff_plot <- df %>%
   mutate(maf_diff = abs(UKB_MAF - Finn_MAF)/pmax(UKB_MAF, Finn_MAF)) %>%
   ggplot(aes(x = source, y = maf_diff, fill = source))+
   geom_violin(width=1)+
-  geom_boxplot(width=0.1, color="grey", fill="white", outlier.shape = NA)+
+  geom_boxplot(width=0.1, color="black", fill="white", outlier.shape = NA)+
   scale_fill_manual(values = col_palette, name = element_blank()) +
   labs(caption = paste("Wilcox test p-value", format(MAF_diff_test$p.value, digits = 3))) +
   theme_bw()+
@@ -98,7 +100,7 @@ pleio_plot <- df %>%
   melt(measure = c("pleio_finn", "pleio_uk", "pleio_meta"), variable = "SNP_source") %>%
   ggplot(aes(x = source, y = value, fill = source))+
   geom_violin(width=1, outlier.shape = NA)+
-  geom_boxplot(width=0.1, color="grey", fill="white", outlier.shape = NA)+
+  geom_boxplot(width=0.1, color="black", fill="white", outlier.shape = NA)+
   scale_fill_manual(values = col_palette, name = element_blank())+
   theme_bw()+
   theme(text = element_text(size = 20), axis.text.x=element_blank(), strip.background = element_blank())+
@@ -122,9 +124,9 @@ beta_finn_p <- paste("Wilcox test p-value", format(beta_test_finn$p.value, digit
 
 beta_plot <- df %>%
   melt(id = c("varid", "source"), measure = c("beta_finn", "beta_UK"), variable = "SNP_source") %>%
-  ggplot(aes(x = source, y = value, fill = source))+
+  ggplot(aes(x = source, y = abs(value), fill = source))+
   geom_violin(width=1)+
-  geom_boxplot(width=0.1, color="grey", fill="white", outlier.shape = NA)+
+  geom_boxplot(width=0.1, color="black", fill="white", outlier.shape = NA)+
   scale_fill_manual(values = col_palette, name = element_blank())+
   theme_bw()+
   theme(text = element_text(size = 20),
@@ -141,7 +143,7 @@ LD_test <- df %>%
 LD_plot <- df %>%
   ggplot(aes(x = source, y = LD_score, fill = source))+
   geom_violin(width=1)+
-  geom_boxplot(width=0.1, color="grey", fill="white", outlier.shape = NA)+
+  geom_boxplot(width=0.1, color="black", fill="white", outlier.shape = NA)+
   scale_fill_manual(values = col_palette, name = element_blank())+
   labs(x = "", caption = paste("Wilcox test p-value", format(LD_test$p.value, digits = 3)), y = "LD score") +
   theme_bw()+
@@ -174,7 +176,7 @@ fig1_2 <- new_clump_data %>%
   filter(value > 0) %>%
   ggplot(aes(SNP_source, value))+
   geom_violin(width=1, outlier.shape = NA)+
-  geom_boxplot(width=0.1, color="grey", fill="white", outlier.shape = NA)+
+  geom_boxplot(width=0.1, color="black", fill="white", outlier.shape = NA)+
   axis_combmatrix(sep = "_")+
   theme_bw()+
   ylim(0, 50)+
@@ -191,23 +193,38 @@ dev.off()
 
 # Meta-reproducible
 finn_meta_repr_SNPs <- index_SNPs %>%
-  filter(str_detect(repr_fm, "perfect|partial")) %>%
-  filter(finn_index)
+  filter(pleio_finn > 0) %>%
+  unnest_tokens(phenonames_finn, phenonames_finn, token = "regex", pattern = ",") %>%
+  unnest_tokens(repr_phenonames_uk, repr_phenonames_uk, token = "regex", pattern = ",") %>%
+  mutate(repr_phenonames_uk = str_replace(repr_phenonames_uk, pattern = ":-.*", replacement = "-"),
+         phenonames_finn = str_replace(phenonames_finn, pattern = ":-.*", replacement = "-")) %>%
+  mutate(repr_phenonames_uk = str_replace(repr_phenonames_uk, pattern = ":.*", replacement = "+"),
+         phenonames_finn = str_replace(phenonames_finn, pattern = ":.*", replacement = "+")) %>%
+  distinct(varid, phenonames_finn, repr_phenonames_uk, .keep_all = T) %>%
+  filter(repr_phenonames_uk == phenonames_finn) %>%
+  distinct(varid, .keep_all=T)
 
 uk_meta_repr_SNPs <- index_SNPs %>%
-  filter(str_detect(repr_um, "perfect|partial")) %>%
-  filter(ukbb_index)
+  filter(pleio_uk > 0) %>%
+  unnest_tokens(phenonames_uk, phenonames_uk, token = "regex", pattern = ",") %>%
+  unnest_tokens(repr_phenonames_finn, repr_phenonames_finn, token = "regex", pattern = ",") %>%
+  mutate(repr_phenonames_finn = str_replace(repr_phenonames_finn, pattern = ":-.*", replacement = "-"),
+         phenonames_uk = str_replace(phenonames_uk, pattern = ":-.*", replacement = "-")) %>%
+  mutate(repr_phenonames_finn = str_replace(repr_phenonames_finn, pattern = ":.*", replacement = "+"),
+         phenonames_uk = str_replace(phenonames_uk, pattern = ":+.*", replacement = "+")) %>%
+  distinct(varid, phenonames_uk, repr_phenonames_finn, .keep_all = T) %>%
+  filter(repr_phenonames_finn == phenonames_uk) %>%
+  distinct(varid, .keep_all=T)
 
-uk_non_repr <- index_SNPs %>% filter(pleio_meta == 0, ukbb_index)
-finn_non_repr <- index_SNPs %>% filter(pleio_meta == 0, finn_index)
 
 meta_repr_SNPs <- rbind(finn_meta_repr_SNPs, uk_meta_repr_SNPs) %>%
-  distinct()
+  distinct(varid, .keep_all=T)
 
-meta_non_repr_SNPs <- rbind(uk_non_repr, finn_non_repr) %>%
-  distinct()
+meta_non_repr_SNPs <- index_SNPs %>%
+  anti_join(meta_repr_SNPs, by = "varid") %>%
+  filter(ukbb_index | finn_index)
 
-meta_repr_plots <- plot_battery(meta_repr_SNPs, meta_non_repr_SNPs, c("magenta", "cyan"), labels = c("Reproducing variants", "Non-reproducing variants"))
+meta_repr_plots <- plot_battery(meta_repr_SNPs, meta_non_repr_SNPs, c("#d55cc6", "#a3f7f7"), labels = c("Reproducing variants", "Non-reproducing variants"))
 
 # Fig 2
 pdf(snakemake@output[[2]], 20, 10)
@@ -226,7 +243,7 @@ non_meta_SNPs <- index_SNPs %>%
   filter(pleio_finn > 0 | pleio_uk > 0) %>%
   anti_join(meta_SNPs, by = "varid")
 
-meta_plots <- plot_battery(meta_SNPs, non_meta_SNPs, col_palette = c("yellow", "green"), labels = c("Meta-analysis specific SNPs", "Nonmeta-analysis specific SNPs"))
+meta_plots <- plot_battery(meta_SNPs, non_meta_SNPs, col_palette = c("#f7f83b", "#52c882"), labels = c("Meta-analysis specific SNPs", "Nonmeta-analysis specific SNPs"))
 
 # Fig 3
 pdf(snakemake@output[[3]], 20, 10)
@@ -402,4 +419,35 @@ clump_venn <- ggvenn(list(FinnGen = clump_area1, UKB = clump_area2, 'Meta-analys
   theme(text = element_text(size = 10))
 
 clump_venn
+dev.off()
+
+
+# Supp6
+
+pdf(snakemake@output[[9]], 20, 10)
+
+repr_finn_plots <- plot_battery(finn_meta_repr_SNPs, meta_non_repr_SNPs %>% filter(finn_index), c("#d55cc6", "#a3f7f7"), labels = c("FG reproducing variants", "FG non-reproducing variants"))
+
+ggarrange(repr_finn_plots[[1]], repr_finn_plots[[2]], repr_finn_plots[[4]], repr_finn_plots[[5]], common.legend = T, legend = "bottom")
+
+dev.off()
+
+# Supp7
+
+pdf(snakemake@output[[10]], 20, 10)
+
+repr_ukbb_plots <- plot_battery(uk_meta_repr_SNPs, meta_non_repr_SNPs %>% filter(ukbb_index), c("#d55cc6", "#a3f7f7"), labels = c("UKB reproducing variants", "UKB non-reproducing variants"))
+
+ggarrange(repr_ukbb_plots[[1]], repr_ukbb_plots[[2]], repr_ukbb_plots[[4]], repr_ukbb_plots[[5]], common.legend = T, legend = "bottom")
+
+dev.off()
+
+# Supp8
+
+pdf(snakemake@output[[11]], 20, 10)
+
+repr_finn_plots <- plot_battery(finn_meta_repr_SNPs  %>% filter(Finn_MAF > 0.05), meta_non_repr_SNPs %>% filter(finn_index) %>% filter(Finn_MAF > 0.05), c("#d55cc6", "#a3f7f7"), labels = c("FG reproducing variants MAF>0.05", "FG non-reproducing variants MAF>0.05"))
+
+ggarrange(repr_finn_plots[[1]], repr_finn_plots[[2]], repr_finn_plots[[4]], repr_finn_plots[[5]], common.legend = T, legend = "bottom")
+
 dev.off()

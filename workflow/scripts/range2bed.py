@@ -9,9 +9,10 @@ with open(snakemake.input.range) as range_file, open(snakemake.output.bed, "w") 
     range_file.readline()  # skip header
     for line in range_file:
 
+        range = line.split()[4]
+        chrom, coords = range.split(":")
         # disregard initial clump size by default. If you want actual ranges use this:
-        # range = line.split()[4]
-        # chrom, coords = range.split(":")
+
         # start, stop = (int(x) for x in coords.split(".."))
 
         name = line.split()[1]

@@ -6,11 +6,14 @@ configfile: "../config/config.yaml"
 onsuccess:
     print("Workflow finished, no error")
 
-N_VARIANTS = 31654403
+# N_VARIANTS = 31654403
+N_VARIANTS = 12265962
 THRESHOLD = 5e-02 / N_VARIANTS
 
-# TODO: has to be created with a rule
+print(N_VARIANTS)
+
 SNP_TEMPLATE = config["SNP_TEMPLATE"]
+FULL_SNP_TEMPLATE = "../resources/full_SNP_template.tsv"
 GLIST = config["GLIST"]
 CORR_TABLE = config["CORR_TABLE"]
 PLINK_GENOTYPE = config["PLINK_GENOTYPE"]  # EUR phase 3 1k Genomes from plink2 website
@@ -35,6 +38,7 @@ rule all:
         "../results/Supp3.pdf",
         "../results/Supp4.pdf",
         "../results/Supp5.pdf",
+        repr_sign_table="../results/repr_sign_table.tsv",
         updated_table="../results/updated_table.tsv",
         phenonames_table="../results/SNP_table.tsv",
         filtered_SNP_table="../results/filtered_SNP_table.tsv",
@@ -45,7 +49,7 @@ rule all:
 
 rule rsid_lookup:
     input:
-        SNP_template=SNP_TEMPLATE,
+        SNP_template=FULL_SNP_TEMPLATE,
     output:
         rsid_lookup="../results/rsid_lookup.json",
     script:
@@ -83,6 +87,18 @@ rule nominal_significance_SNPs:
     script:
         "scripts/gather_nominal_sign_SNPs.py"
 
+rule repr_SNPs:
+    input:
+        rsid_lookup="../results/rsid_lookup.json",
+        SNP_template=SNP_TEMPLATE,
+        corr_table=CORR_TABLE,
+        filtered_SNP_table="../results/filtered_SNP_table.tsv",
+        repr_filtered_tables=expand("../results/filtered/repr_{dataset}/{sample}_filtered.tsv", sample=samples, dataset=["finn", "uk"]),
+    output:
+        repr_sign_table="../results/repr_sign_table.tsv",
+    script:
+        "scripts/gather_repr_sign_SNPs.py"
+
 rule SNP_table:
     input:
         corr_table=CORR_TABLE,
@@ -101,6 +117,7 @@ rule analyze_tables:
     input:
         filtered_SNP_table="../results/filtered_SNP_table.tsv",
         nominal_sign_table="../results/nominal_sign_table.tsv",
+        repr_sign_table="../results/repr_sign_table.tsv",
         updated_table="../results/updated_table.tsv",
         total_bed="../results/merged.total.bed",
         clump_intersections="../results/clump_intersection_table.tsv",
@@ -113,6 +130,9 @@ rule analyze_tables:
         "../results/Supp3.pdf",
         "../results/Supp4.pdf",
         "../results/Supp5.pdf",
+        "../results/Supp6.pdf",
+        "../results/Supp7.pdf",
+        "../results/Supp8.pdf",
     conda:
         "envs/r_packages.yaml"
     script:

@@ -138,21 +138,37 @@ with open(snakemake.input.SNP_template) as SNP_template, \
         phenonames_meta = ','.join(convert_set(meta_phenotypes))
         pleio_meta = len(meta_phenotypes)
 
+        # intersections
+        intersection_finn_uk = intersect_sets(convert_set(finn_phenotypes), convert_set(uk_phenotypes))
+        intersection_finn_meta = intersect_sets(convert_set(finn_phenotypes), convert_set(meta_phenotypes))
+        intersection_uk_meta = intersect_sets(convert_set(uk_phenotypes), convert_set(meta_phenotypes))
+
 
         if pleio_uk == 0 and pleio_finn == 0 and pleio_meta > 0:
 
-            pairs = phenonames_meta.split(',')
-            meta_phenotypes = set([x.split(":")[0] for x in pairs])
+            meta_ps = set([x.split(":")[0] for x in phenonames_meta.split(',')])
 
 
-            betas_finn = {float(beta_reference[varid][x]["finn"]) for x in meta_phenotypes}
-            betas_uk = {float(beta_reference[varid][x]["uk"]) for x in meta_phenotypes}
+            betas_finn = {float(beta_reference[varid][x]["finn"]) for x in meta_ps}
+            betas_uk = {float(beta_reference[varid][x]["uk"]) for x in meta_ps}
 
             beta_finn = max(betas_finn, key=abs)
             beta_UK = max(betas_uk, key=abs)
         else:
+            # Workaround for betas if no GW-significant associations found in one BB
             beta_UK = find_max_effect_size(phenonames_uk)
+            if beta_UK == "0" and pleio_finn > 0:
+
+                finn_ps = set([x.split(":")[0] for x in phenonames_finn.split(',')])
+                betas_uk = {float(beta_reference[varid][x]["uk"]) if not beta_reference[varid][x]["uk"] == "NA" else 0 for x in finn_ps}
+                beta_UK = max(betas_uk, key=abs)
+
             beta_finn = find_max_effect_size(phenonames_finn)
+            if beta_finn == "0" and pleio_uk > 0:
+
+                uk_ps = set([x.split(":")[0] for x in phenonames_uk.split(',')])
+                betas_finn = {float(beta_reference[varid][x]["finn"]) if not beta_reference[varid][x]["finn"] == "NA" else 0 for x in uk_ps}
+                beta_finn = max(betas_finn, key=abs)
 
         # clumps
         clump_finn = ','.join(SNP_dict[varid]["clump_finn"])
@@ -162,10 +178,6 @@ with open(snakemake.input.SNP_template) as SNP_template, \
         # LD scores
         LD_score = ld_scores_dict[varid]
 
-        # intersections
-        intersection_finn_uk = intersect_sets(convert_set(finn_phenotypes), convert_set(uk_phenotypes))
-        intersection_finn_meta = intersect_sets(convert_set(finn_phenotypes), convert_set(meta_phenotypes))
-        intersection_uk_meta = intersect_sets(convert_set(uk_phenotypes), convert_set(meta_phenotypes))
 
         # are sets perfectly intersected?
         repr_fu = intersection_finn_uk[0]

@@ -62,4 +62,4 @@ rule total_bed:
         total_bed="../results/merged.total.bed",
     shell:
         "cat ../results/plink/*/*.bed | sort -k1,1 -k2,2n | "
-        "bedtools merge -i stdin -c 4 -o -collapse -delim '|' > {output.total_bed};"
+        "bedtools merge -i stdin -c 4 -o collapse -delim '|' > {output.total_bed};"
