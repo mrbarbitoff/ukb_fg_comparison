@@ -23,8 +23,8 @@ nominal_data <- read_tsv(snakemake@input[["nominal_sign_table"]], col_types = "c
 repr_data <- read_tsv(snakemake@input[["repr_sign_table"]], col_types = "cnnccici", col_names = c("varid", "Finn_MAF", "UKB_MAF", "rsid", "repr_phenonames_finn", "repr_pleio_finn", "repr_phenonames_uk", "repr_pleio_uk"))
 
 SNP_data <- SNP_data %>%
-  left_join(nominal_data, by = c("varid", "Finn_MAF", "UKB_MAF", "rsid")) %>%
-  left_join(repr_data, by = c("varid", "Finn_MAF", "UKB_MAF", "rsid"))
+  left_join(nominal_data %>% select(-contains("MAF")), by = c("varid", "rsid")) %>%
+  left_join(repr_data %>% select(-contains("MAF")), by = c("varid", "rsid"))
 
 index_SNPs <- SNP_data %>%
   filter(!is.na(is_index)) %>%
@@ -58,6 +58,8 @@ df2$source <- labels[2]
 
 df <- rbind(df1, df2)
 
+pval_limit <- "<1e-308"
+
 UK_MAF_test <- df %>%
   melt(measure = c("Finn_MAF", "UKB_MAF"), variable = "SNP_source") %>%
   wilcox.test(value ~ source, data = ., subset = SNP_source == "UKB_MAF")
@@ -66,8 +68,9 @@ Finn_MAF_test <- df %>%
   melt(measure = c("Finn_MAF", "UKB_MAF"), variable = "SNP_source") %>%
   wilcox.test(value ~ source, data = ., subset = SNP_source == "Finn_MAF")
 
-MAF_finn_p <- paste("Wilcox test p-value", format(Finn_MAF_test$p.value, digits = 3))
-MAF_uk_p <- paste("Wilcox test p-value", format(UK_MAF_test$p.value, digits = 3))
+
+MAF_finn_p <- paste("Wilcox test p-value", ifelse(Finn_MAF_test$p.value == 0, pval_limit, format(Finn_MAF_test$p.value, digits = 3)))
+MAF_uk_p <- paste("Wilcox test p-value", ifelse(UK_MAF_test$p.value == 0, pval_limit, format(UK_MAF_test$p.value, digits = 3)))
 
 MAF_plot <- df %>%
   melt(measure = c("Finn_MAF", "UKB_MAF"), variable = "SNP_source") %>%
@@ -119,8 +122,8 @@ beta_test_finn <- df %>%
   melt(id = c("varid", "source"), measure = c("beta_finn", "beta_UK"), variable = "SNP_source") %>%
   wilcox.test(value ~ source, data = ., subset = SNP_source == "beta_finn")
 
-beta_uk_p <- paste("Wilcox test p-value", format(beta_test_uk$p.value, digits = 3))
-beta_finn_p <- paste("Wilcox test p-value", format(beta_test_finn$p.value, digits = 3))
+  beta_uk_p <- paste("Wilcox test p-value", ifelse(beta_test_uk$p.value == 0, pval_limit, format(beta_test_uk$p.value, digits = 3)))
+  beta_finn_p <- paste("Wilcox test p-value", ifelse(beta_test_finn$p.value == 0, pval_limit, format(beta_test_finn$p.value, digits = 3)))
 
 beta_plot <- df %>%
   melt(id = c("varid", "source"), measure = c("beta_finn", "beta_UK"), variable = "SNP_source") %>%
