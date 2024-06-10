@@ -6,7 +6,7 @@ configfile: "../config/config.yaml"
 onsuccess:
     print("Workflow finished, no error")
 
-# N_VARIANTS = 31654403
+
 N_VARIANTS = 12265962
 THRESHOLD = 5e-02 / N_VARIANTS
 
@@ -44,6 +44,7 @@ rule all:
         filtered_SNP_table="../results/filtered_SNP_table.tsv",
         nominal_sign_table="../results/nominal_sign_table.tsv",
         total_bed="../results/merged.total.bed",
+        repr_table="../results/expected_replication.tsv",
     output:
         touch(".status")
 
@@ -54,7 +55,6 @@ rule rsid_lookup:
         rsid_lookup="../results/rsid_lookup.json",
     script:
         "scripts/create_rsid_lookup.py"
-
 
 rule gather_tables:
     input:
@@ -112,6 +112,22 @@ rule SNP_table:
         filtered_SNP_table="../results/filtered_SNP_table.tsv",
     script:
         "scripts/gather_SNP_tables.py"
+
+rule repr_check:
+# reproducibility check based on 4th review
+    input:
+        corr_table=CORR_TABLE,
+        filtered_SNP_table="../results/filtered_SNP_table.tsv",
+        plink_clumped=expand("../results/plink/{dataset}/{sample}.clumped", dataset=["finn", "ukbb", "meta"], sample=samples),
+        filtered_tables=expand("../results/filtered/{dataset}/{sample}_filtered.tsv", sample=samples, dataset=["finn", "uk", "meta"]),
+    output:
+        repr_table="../results/expected_replication.tsv",
+
+    params:
+        finn_repr_threshold=snakemake.ukbb_index_counter,
+        uk_repr_threshold=snakemake.finn_index_counter,
+    script:
+        "scripts/repr_check.py"
 
 rule analyze_tables:
     input:

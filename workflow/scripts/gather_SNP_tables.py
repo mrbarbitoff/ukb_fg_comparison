@@ -108,6 +108,9 @@ for index, row in corr_table.iterrows():
                 index_dict[varid].add(f"index_{dataset}")
                 SNP_dict[varid][f"clump_{dataset}"].add(id)
 
+finn_index_counter = 0
+ukbb_index_counter = 0
+
 with open(snakemake.input.SNP_template) as SNP_template, \
     open(snakemake.output.phenonames_table, "w") as outfile, \
     open(snakemake.output.filtered_SNP_table, "w") as filtered_SNP_table:
@@ -125,6 +128,10 @@ with open(snakemake.input.SNP_template) as SNP_template, \
 
         # check if index in a clump
         is_index = ":".join(index_dict[varid])
+        if "index_ukbb" in index_dict[varid]:
+            ukbb_index_counter += 1
+        if "index_finn" in index_dict[varid]:
+            finn_index_counter += 1
 
         # lists of phenotypes from SNP dictionary
         finn_phenotypes = SNP_dict[varid]["phenonames_finn"]
@@ -194,3 +201,6 @@ with open(snakemake.input.SNP_template) as SNP_template, \
         if pleio_uk > 0 or pleio_finn > 0 or pleio_meta > 0:
             filtered_SNP_table.write(new_data_line)
         outfile.write(new_data_line)
+
+snakemake.finn_index_counter = finn_index_counter
+snakemake.ukbb_index_counter = ukbb_index_counter
